@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .profile-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+    }
+
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 60%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .bio {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 5px 10px;
+      text-decoration: none;
+      color: #0077cc;
+      border: 1px solid #0077cc;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: #0077cc;
+      color: #fff;
+    }
+
+    .filter-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 5px 10px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover {
+      background-color: #005fa3;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .project-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .project-info {
+      flex: 1;
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .project-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .project-info a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .project-info a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <img src="benito.jpg"alt="Profile Picture" class="profile-pic" />
+    <h1>Bernard Otieno</h1>
+    <p class="bio">I'm a beginner web developer passionate about HTML, CSS, and JavaScript.</p>
+
+    <div class="social-links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href=":akinyiwinnie267@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <div class="filter-container">
+    <button class="filter-btn" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="web">Web Development</button>
+    <button class="filter-btn" data-filter="app">App Development</button>
+  </div>
+
+  <div class="projects">
+    <div class="project web">
+      <img src="portfolio-screenshot.jpg" alt="Portfolio Screenshot" class="project-img" />
+      <div class="project-info">
+        <h3>Simple Portfolio Website</h3>
+        <p>Built with HTML and CSS to showcase my skills.</p>
+        <a href="#">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="project app">
+      <img src="todo-app-screenshot.jpg" alt="Todo App Screenshot" class="project-img" />
+      <div class="project-info">
+        <h3>Todo List App</h3>
+        <p>A JavaScript app for adding and deleting tasks.</p>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        projects.forEach(project => {
+          if (filter === 'all' || project.classList.contains(filter)) {
+            project.style.display = 'flex';
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
